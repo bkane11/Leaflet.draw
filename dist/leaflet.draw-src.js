@@ -1286,13 +1286,13 @@ L.Polyline.addInitHook(function () {
 	}
 
 	this.on('add', function () {
-		if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function&& this.editing.enabled()) {
 			this.editing.addHooks();
 		}
 	});
 
 	this.on('remove', function () {
-		if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function&& this.editing.enabled()) {
 			this.editing.removeHooks();
 		}
 	});
@@ -1611,13 +1611,13 @@ L.Circle.addInitHook(function () {
 	}
 
 	this.on('add', function () {
-		if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function && this.editing.enabled()) {
 			this.editing.addHooks();
 		}
 	});
 
 	this.on('remove', function () {
-		if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function && this.editing.enabled()) {
 			this.editing.removeHooks();
 		}
 	});
