@@ -1303,7 +1303,8 @@ var initHook = function () {
 	});
 
 	this.on('remove', function () {
-		if (this.editing && this.editing.enabled()) {
+		// if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function && this.editing.enabled()) {
 			this.editing.removeHooks();
 		}
 	});
