@@ -114,7 +114,9 @@ L.Rectangle.addInitHook(function () {
 		this.editing = new L.Edit.Rectangle(this);
 
 		if (this.options.editable) {
-			this.editing.enable();
+			if (this.editing && this.editing.enable instanceof Function)
+				this.editing.enable();
 		}
 	}
+	
 });

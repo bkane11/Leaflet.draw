@@ -263,12 +263,14 @@ var initHook = function () {
 		this.editing = new L.Edit.Poly(this);
 
 		if (this.options.editable) {
-			this.editing.enable();
+			if(this.editing && this.editing.enable instanceof Function)
+				this.editing.enable();
 		}
 	}
 
 	this.on('add', function () {
-		if (this.editing && this.editing.enabled()) {
+		// if (this.editing && this.editing.enabled()) {
+		if (this.editing && this.editing.enabled instanceof Function && this.editing.enabled()) {
 			this.editing.addHooks();
 		}
 	});
